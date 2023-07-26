@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple/MyAPP.dart';
-import 'package:simple/core/router/service_Locator.dart';
 
-import 'block/log_bloc.dart';
-import 'model/listemailurname.dart';
+import 'core/services/services_locator.dart';
+import 'feature/presentation/block/log_bloc.dart';
+
 
 void main() {
-  servicelocatorInit();
+  WidgetsFlutterBinding.ensureInitialized();
+  setServices();
   runApp(BlocProvider<LogBloc>(
       create: (context) => LogBloc(),
       child: MyApp()),
